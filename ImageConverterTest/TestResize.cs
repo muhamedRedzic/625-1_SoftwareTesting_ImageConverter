@@ -15,7 +15,7 @@ namespace ImageConverterTest
             int myWidth = 1024;
             int myHeight = 768;
 
-            Image img = Image.FromFile(@"C:\Users\Muhamed\Documents\Visual Studio 2013\Projects\625-1_SoftwareTest\TIFF_image_--_JPEG_image_converter_CSTiffImageConverter_\testfiles\Soviet_BMP-1_IFV.jpeg");
+            Image img = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + "\\Soviet_BMP-1_IFV.jpeg");
             Bitmap bmp = new Bitmap(img);
             bmp = CSTiffImageConverter.TiffImageConverter.Resizer(1, img);
             Assert.AreEqual(bmp.Height, myHeight);
@@ -28,7 +28,7 @@ namespace ImageConverterTest
             int myWidth = 1024;
             int myHeight = 768;
 
-            Image img = Image.FromFile(@"C:\Users\Muhamed\Documents\Visual Studio 2013\Projects\625-1_SoftwareTest\TIFF_image_--_JPEG_image_converter_CSTiffImageConverter_\testfiles\Soviet_BMP-1_IFV.jpeg");
+            Image img = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + "\\Soviet_BMP-1_IFV.jpeg");
             Bitmap bmp = new Bitmap(img);
             bmp = CSTiffImageConverter.TiffImageConverter.Resizer(2, img);
             Assert.AreEqual(bmp.Height, myHeight);
@@ -41,7 +41,7 @@ namespace ImageConverterTest
             int myWidth = 1024;
             int myHeight = 768;
 
-            Image img = Image.FromFile(@"C:\Users\Muhamed\Documents\Visual Studio 2013\Projects\625-1_SoftwareTest\TIFF_image_--_JPEG_image_converter_CSTiffImageConverter_\testfiles\Soviet_BMP-1_IFV.jpeg");
+            Image img = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + "\\Soviet_BMP-1_IFV.jpeg");
             Bitmap bmp = new Bitmap(img);
             bmp = CSTiffImageConverter.TiffImageConverter.Resizer(3, img);
             Assert.AreEqual(bmp.Height, myHeight);
