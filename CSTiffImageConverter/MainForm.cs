@@ -40,18 +40,38 @@ namespace CSTiffImageConverter
         public MainForm()
         {
             InitializeComponent();
+            this.radioButtonNoResize.Checked = true;
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
             dlgOpenFileDialog.Multiselect = true;
             dlgOpenFileDialog.Filter = "Image files (.jpg, .jpeg, .tif, .tiff, .bmp, .gif)|*.jpg;*.jpeg;*.tif;*.tiff;*.bmp;*.gif";
+            
+            //choice of resizing
+            int choiceOfResizing;
+            if (this.radioButtonCrop.Checked == true)
+            {
+                choiceOfResizing = 1;
+            }
+            else if (this.radioButtonKeepRatio.Checked == true)
+            {
+                choiceOfResizing = 2;
+            }
+            else if (this.radioButtonDontKeepRatio.Checked == true)
+            {
+                choiceOfResizing = 3;
+            }
+            else
+            {
+                choiceOfResizing = 0;
+            }
 
             if (dlgOpenFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    int counter = TiffImageConverter.ConvertImages(dlgOpenFileDialog.FileNames, cbImageFormats.SelectedItem.ToString());
+                    int counter = TiffImageConverter.ConvertImages(dlgOpenFileDialog.FileNames, cbImageFormats.SelectedItem.ToString(), choiceOfResizing);
                     MessageBox.Show(counter.ToString()+" image(s) successfully converted.");
                 }
                 catch (Exception ex)
